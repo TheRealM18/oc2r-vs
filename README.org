@@ -1,0 +1,10 @@
+* OC2-VS
+This is an addon for VS2 that provides an OC2 computer interface card allowing OC2 computers to read ship data and rename ships.
+It requires a patched version of OC2 for computers to correctly start when on a ship
+
+** Branches
+1.18.x, 1.19.2, and 1.20.x are actively supported. Primary development happens on 1.19.2.
+
+** Building
+OC2 isn't available via maven or similar, so building requires manually putting a reference copy of OC2 in forge/libs/oc2.jar.
+1.19 and 1.18 can use the same reference jar, but 1.20 needs its own
