@@ -1,0 +1,42 @@
+modLoader = "javafml"
+loaderVersion = "[3.12.0,)"
+issueTrackerURL = "https://github.com/ValkyrienSkies/Valkyrien-Skies-2/issues"
+license = "Apache-2.0"
+
+[[mods]]
+modId = "oc2_vs"
+version = "${version}"
+displayName = "OC2: VS"
+authors = ["lperkins2"]
+description = '''
+OpenComputers2 addon for Valkyrien Skies 2
+'''
+logoFile = "icon.png"
+
+[[dependencies.oc2_vs]]
+modId = "forge"
+mandatory = true
+versionRange = "[40.1.69,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.oc2_vs]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.18.2,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.oc2_vs]]
+modId = "valkyrienskies"
+mandatory = true
+versionRange = "[${vs2_version},)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.oc2_vs]]
+modId = "oc2"
+mandatory = true
+versionRange = "[0.0.0,)"
+ordering = "AFTER"
+side = "BOTH"
