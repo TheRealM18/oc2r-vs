@@ -49,4 +49,8 @@ include("common")
 include("fabric")
 include("forge")
 
-rootProject.name = "oc2_vs"
+// Load properties from gradle.properties
+val minecraftVersion: String by settings
+val minecraftSdk: String by settings
+
+rootProject.name = "oc2rvs"
