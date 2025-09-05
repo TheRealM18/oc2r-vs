@@ -41,6 +41,7 @@ subprojects {
         mappings(loom.layered {
             officialMojangMappings()
             parchment("org.parchmentmc.data:parchment-1.20.1:2023.09.03")
+            implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:0.4.1"))
         })
 
         implementation("org.joml:joml:1.10.4") { transitive = false }

@@ -53,4 +53,4 @@ include("forge")
 val minecraftVersion: String by settings
 val minecraftSdk: String by settings
 
-rootProject.name = "oc2rvs"
+rootProject.name = "oc2r-vs"
