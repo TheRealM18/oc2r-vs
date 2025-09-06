@@ -19,30 +19,16 @@ import org.valkyrienskies.mod.common.util.VectorConversionsMCKt;
 @Pseudo
 @Mixin(MonitorRenderer.class)
 public class MixinMonitorRenderer {
-    @WrapOperation(method = "render(Lli/cil/oc2/common/blockentity/MonitorBlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;II)V", at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/world/entity/Entity;getEyePosition(F)Lnet/minecraft/world/phys/Vec3;"
-    ))
-    private Vec3 valkyrienskies$renderEyePositionTransform(Entity instance, float partialTicks, Operation<Vec3> original, @Local(argsOnly = true) MonitorBlockEntity be) {
-        Ship ship = VSGameUtilsKt.getShipObjectManagingPos(be.getLevel(), be.getBlockPos());
-        if (ship == null) return original.call(instance, partialTicks);
-
-        Vector3d pos = VectorConversionsMCKt.toJOML(original.call(instance, partialTicks));
-        ship.getTransform().getShipToWorld().transformPosition(pos);
-        return VectorConversionsMCKt.toMinecraft(pos);
-    }
-
     @WrapOperation(method = "renderTerminal", at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/world/phys/Vec3;closerThan(Lnet/minecraft/core/Position;D)Z"
     ))
     private boolean valkyrienskies$renderTerminalDistanceCheck(Vec3 instance, Position arg, double d, Operation<Boolean> original, @Local(argsOnly = true) MonitorBlockEntity be) {
-        Ship ship = VSGameUtilsKt.getShipObjectManagingPos(be.getLevel(), be.getBlockPos());
-        if (ship == null) return original.call(instance, arg, d);
+        Ship ship = VSGameUtilsKt.getShipObjectManagingPos(be.getLevel(), VectorConversionsMCKt.toJOML(instance));
+        if (ship != null) instance =
+                VectorConversionsMCKt.toMinecraft(ship.getTransform().getShipToWorld().transformPosition(VectorConversionsMCKt.toJOML(instance)));
 
-        Vector3d pos = VectorConversionsMCKt.toJOML(instance);
-        ship.getTransform().getShipToWorld().transformPosition(pos);
-        return original.call(VectorConversionsMCKt.toMinecraft(pos), arg, d);
+        return original.call(instance, arg, d);
     }
 
     @WrapOperation(method = "renderStatusText", at = @At(
@@ -50,11 +36,10 @@ public class MixinMonitorRenderer {
             target = "Lnet/minecraft/world/phys/Vec3;closerThan(Lnet/minecraft/core/Position;D)Z"
     ))
     private boolean valkyrienskies$renderStatusTextDistanceCheck(Vec3 instance, Position arg, double d, Operation<Boolean> original, @Local(argsOnly = true) MonitorBlockEntity be) {
-        Ship ship = VSGameUtilsKt.getShipObjectManagingPos(be.getLevel(), be.getBlockPos());
-        if (ship == null) return original.call(instance, arg, d);
+        Ship ship = VSGameUtilsKt.getShipObjectManagingPos(be.getLevel(), VectorConversionsMCKt.toJOML(instance));
+        if (ship != null) instance =
+                VectorConversionsMCKt.toMinecraft(ship.getTransform().getShipToWorld().transformPosition(VectorConversionsMCKt.toJOML(instance)));
 
-        Vector3d pos = VectorConversionsMCKt.toJOML(instance);
-        ship.getTransform().getShipToWorld().transformPosition(pos);
-        return original.call(VectorConversionsMCKt.toMinecraft(pos), arg, d);
+        return original.call(instance, arg, d);
     }
 }

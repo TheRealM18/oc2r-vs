@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 public class OC2RVSMod {
 
     public static final String MODID = "oc2rvs";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public OC2RVSMod() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
