@@ -108,6 +108,9 @@ public final class ShipOperationsModuleDevice extends AbstractItemRPCDevice impl
         visitor.visitCallback("getOmega")
                 .description("Returns the omega of the ship as Euler angles")
                 .returnValueDescription("The rotational velocity of the ship");
+        visitor.visitCallback("getShipTransform")
+                .description("Returns the transform of the ship")
+                .returnValueDescription("Returns the transform of the ship");
         visitor.visitCallback("getShipAABB")
                 .description("Returns the AABB of the ship")
                 .returnValueDescription("The AABB of the ship");
@@ -118,7 +121,7 @@ public final class ShipOperationsModuleDevice extends AbstractItemRPCDevice impl
                 .description("Check if the ship is currently an active physics object")
                 .returnValueDescription("false if the ship is asleep");
         visitor.visitCallback("setSlug")
-                .parameterDescription("slug", "The new slug")
+                .parameterDescription("arg1", "slug")
                 .description("Sets the slug of the ship as a string");
     }
 
