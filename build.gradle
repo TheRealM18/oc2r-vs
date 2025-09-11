@@ -246,7 +246,6 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 publishMods {
-    changelog = "# Temp"
     type = STABLE
     file = jar.archiveFile
     modLoaders.add("forge")
