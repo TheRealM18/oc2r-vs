@@ -1,19 +1,6 @@
-build/
-*.ipr
-run/
-*.iws
-out/
-*.iml
-.gradle/
-output/
-bin/
-libs/
-
-.classpath
-.project
-.idea/
-classes/
-.metadata
-.vscode
-.settings
-*.launch
+# Project exclude paths
+/.gradle/
+/build/
+/build/classes/java/main/
+/run/
+/.idea/

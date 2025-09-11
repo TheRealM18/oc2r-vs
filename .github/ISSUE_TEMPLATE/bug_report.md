@@ -37,9 +37,9 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Versions (please complete the following information):**
- - Minecraft: [e.g. 1.18.2]
- - Forge: [e.g. 40.0.40]
- - oc2r: [e.g. 0.1.7]
+- Forge: [e.g. 40.0.40]
+- oc2r: [e.g. 0.1.7]
+- vs: [e.g. 2.3.0-beta.9]
 
 **Additional context**
 Add any other context about the problem here.
