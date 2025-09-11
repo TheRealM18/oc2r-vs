@@ -13,6 +13,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
+    id "me.modmuss50.mod-publish-plugin" version "1.0.0"
 }
 
 apply plugin: 'org.spongepowered.mixin'
@@ -242,4 +243,39 @@ tasks.named('jar', Jar).configure {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+publishMods {
+    changelog = "# Temp"
+    type = STABLE
+    file = jar.archiveFile
+    modLoaders.add("forge")
+    displayName = file.map { it.asFile.name }
+    changelog = file("changelog.md").text
+
+    curseforge {
+        accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
+        projectId = "1341233"
+        minecraftVersions.add(minecraft_version)
+        clientRequired = true
+        serverRequired = true
+        requires("markdownmanual", "oc2r-addon-core", "oc2r", "valkyrien-skies")
+    }
+
+    modrinth {
+        accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+        projectId = ""
+        minecraftVersions.add(minecraft_version)
+        requires("markdownmanual")
+        requires("oc2r-addon-core")
+        requires("oc2r")
+        requires("valkyrien-skies")
+    }
+
+    github {
+        accessToken = providers.environmentVariable("GITHUB_TOKEN")
+        repository = "TheRealM18/oc2r-vs"
+        commitish = "1.20.1-Fixes"
+        tagName = mod_version
+    }
 }
