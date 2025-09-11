@@ -271,10 +271,12 @@ publishMods {
         requires("valkyrien-skies")
     }
 
-    github {
-        accessToken = providers.environmentVariable("GITHUB_TOKEN")
-        repository = "TheRealM18/oc2r-vs"
-        commitish = "1.20.1"
-        tagName = mod_version
+    if (System.getenv("GITHUB_TOKEN") != null) {
+        github {
+            accessToken = providers.environmentVariable("GITHUB_TOKEN")
+            repository = "TheRealM18/oc2r-vs"
+            commitish = "1.20.1"
+            tagName = mod_version
+        }
     }
 }
