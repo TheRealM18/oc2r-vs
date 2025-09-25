@@ -12,6 +12,8 @@ import java.util.function.Supplier;
 public class Items {
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "oc2rvs");
 
+    public static final RegistryObject<Item> VS_LOGO = register("vs_logo", ModItem::new);
+
     public static final RegistryObject<Item> SHIP_OPERATIONS_MODULE = register("ship_operations_module", ModItem::new);
 
     public static void initialize(IEventBus bus) {

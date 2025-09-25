@@ -194,8 +194,9 @@ dependencies {
 
     implementation "thedarkcolour:kotlinforforge:$kotlin_version"
 
-    implementation fg.deobf("curse.maven:oc2r-1037738:6914611")
+    implementation fg.deobf("curse.maven:oc2rvs-1037738:6914611")
     implementation "curse.maven:oc2raddoncore-1194254:6967195"
+    implementation "curse.maven:markdownmanual-502485:4873115"
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
@@ -258,7 +259,7 @@ publishMods {
         minecraftVersions.add(minecraft_version)
         clientRequired = true
         serverRequired = true
-        requires("markdownmanual", "oc2r-addon-core", "oc2r", "valkyrien-skies")
+        requires("markdownmanual", "oc2rvs-addon-core", "oc2rvs", "valkyrien-skies")
     }
 
     modrinth {
@@ -266,14 +267,14 @@ publishMods {
         projectId = "5MHRLc0P"
         minecraftVersions.add(minecraft_version)
         requires("markdownmanual")
-        requires("oc2r-addon-core")
-        requires("oc2r")
+        requires("oc2rvs-addon-core")
+        requires("oc2rvs")
         requires("valkyrien-skies")
     }
 
     github {
         accessToken = providers.environmentVariable("GITHUB_TOKEN")
-        repository = "TheRealM18/oc2r-vs"
+        repository = "TheRealM18/oc2rvs-vs"
         commitish = "1.20.1"
         tagName = mod_version
     }

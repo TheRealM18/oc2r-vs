@@ -20,5 +20,9 @@ public class OC2RVSMod {
         MinecraftForge.EVENT_BUS.register(this);
         Items.initialize(eventBus);
         Providers.initialize(eventBus);
+
+        ManualTab.register(eventBus);
+        ManualPathProvider.register(eventBus);
+        ManualDocumentProvider.register(eventBus);
     }
 }
