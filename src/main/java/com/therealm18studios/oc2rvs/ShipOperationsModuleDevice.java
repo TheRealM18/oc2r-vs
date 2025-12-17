@@ -3,15 +3,12 @@ import li.cil.oc2.common.bus.device.rpc.item.*;
 import net.minecraft.world.item.ItemStack;
 import org.joml.Vector3dc;
 
-import java.util.*;
-
 import li.cil.oc2.api.bus.device.object.Callback;
 import li.cil.oc2.api.bus.device.object.DocumentedDevice;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.joml.primitives.AABBic;
-import org.valkyrienskies.core.api.ships.properties.ShipInertiaData;
+import org.valkyrienskies.core.api.bodies.properties.BodyInertia;
 import org.valkyrienskies.core.api.ships.properties.ShipTransform;
-import org.valkyrienskies.mod.common.VSGameUtilsKt;
 import org.valkyrienskies.core.api.ships.ServerShip;
 
 public final class ShipOperationsModuleDevice extends AbstractItemRPCDevice implements DocumentedDevice {
@@ -33,7 +30,7 @@ public final class ShipOperationsModuleDevice extends AbstractItemRPCDevice impl
     }
 
     @Callback(name = "getInertiaData")
-    public ShipInertiaData getInertiaData() {
+    public BodyInertia getInertiaData() {
         return this.ship.getInertiaData();
     }
 
@@ -42,9 +39,9 @@ public final class ShipOperationsModuleDevice extends AbstractItemRPCDevice impl
         return this.ship.getSlug();
     }
 
-    @Callback(name = "getOmega")
-    public Vector3dc getOmega() {
-        return this.ship.getOmega();
+    @Callback(name = "getAngularVelocity")
+    public Vector3dc getAngularVelocity() {
+        return this.ship.getAngularVelocity();
     }
 
     @Callback(name = "getShipTransform")
@@ -57,8 +54,8 @@ public final class ShipOperationsModuleDevice extends AbstractItemRPCDevice impl
         return this.ship.getShipAABB();
     }
 
-    @Callback(name = "getVelocity")
-    public Vector3dc getVelocity() {
+    @Callback(name = "getLinearVelocity")
+    public Vector3dc getLinearVelocity() {
         return this.ship.getVelocity();
     }
 
@@ -83,8 +80,8 @@ public final class ShipOperationsModuleDevice extends AbstractItemRPCDevice impl
         visitor.visitCallback("getSlug")
                 .description("Returns the slug of the ship")
                 .returnValueDescription("The slug of the ship");
-        visitor.visitCallback("getOmega")
-                .description("Returns the omega of the ship as Euler angles")
+        visitor.visitCallback("getAngularVelocity")
+                .description("Returns the anular velocity of the ship as Euler angles")
                 .returnValueDescription("The rotational velocity of the ship");
         visitor.visitCallback("getShipTransform")
                 .description("Returns the transform of the ship")
@@ -93,8 +90,8 @@ public final class ShipOperationsModuleDevice extends AbstractItemRPCDevice impl
                 .description("Returns the AABB of the ship")
                 .returnValueDescription("The AABB of the ship");
         visitor.visitCallback("getVelocity")
-                .description("Returns the velocity of the ship")
-                .returnValueDescription("The velocity of the ship");
+                .description("Returns the linear velocity of the ship")
+                .returnValueDescription("The linear velocity of the ship");
         visitor.visitCallback("isStatic")
                 .description("Check if the ship is currently an active physics object")
                 .returnValueDescription("false if the ship is asleep");

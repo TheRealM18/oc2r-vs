@@ -7,9 +7,6 @@
   "mixins": [
   ],
   "client": [
-    "MixinComputerRenderer",
-    "MixinMonitorRenderer",
-    "MixinProjectorDepthRenderer"
   ],
   "injectors": {
     "defaultRequire": 1

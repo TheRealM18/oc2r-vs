@@ -19,7 +19,7 @@ This method gets the current inertia data of the Ship this computer is currently
 *getSlug():string*
 Thisa method gets the Slug of the Ship this computer is on.
 
-*getOmega():table*
+*getAngularVelocity():table*
 This method gets the angular velocity of the Ship this computer is on.
 - Returns the angular velocity of the Ship as a table containing the keys *x*, *y*, and *z*.
 
@@ -31,7 +31,7 @@ This method gets the transform data of the Ship this computer is on.
 This method gets the Axis-Aligned Bounding Box of the Ship this computer is on.
 - Returns the AABB of the Ship as a table
 
-*getVelocity():table*
+*getLinearVelocity():table*
 This method gets the linear velocity of the Ship this computer is on.
 - Returns the linear velocity of the Ship as a table containing the keys *x*, *y*, and *z*.
 
