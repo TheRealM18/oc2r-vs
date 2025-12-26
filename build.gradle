@@ -194,7 +194,7 @@ dependencies {
 
     implementation "thedarkcolour:kotlinforforge:$kotlin_version"
 
-    implementation fg.deobf("curse.maven:oc2rvs-1037738:6914611")
+    implementation fg.deobf("curse.maven:oc2r-1037738:6914611")
     implementation "curse.maven:oc2raddoncore-1194254:6967195"
     implementation "curse.maven:markdownmanual-502485:4873115"
 
